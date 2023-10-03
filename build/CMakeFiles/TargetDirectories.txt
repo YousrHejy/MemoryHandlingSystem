@@ -1,6 +1,0 @@
-/home/yousr/c++projects/MemoryHandlingSystem/build/CMakeFiles/disk_handler.dir
-/home/yousr/c++projects/MemoryHandlingSystem/build/CMakeFiles/edit_cache.dir
-/home/yousr/c++projects/MemoryHandlingSystem/build/CMakeFiles/rebuild_cache.dir
-/home/yousr/c++projects/MemoryHandlingSystem/build/memory_handler_lib/CMakeFiles/memory_handler_lib.dir
-/home/yousr/c++projects/MemoryHandlingSystem/build/memory_handler_lib/CMakeFiles/edit_cache.dir
-/home/yousr/c++projects/MemoryHandlingSystem/build/memory_handler_lib/CMakeFiles/rebuild_cache.dir

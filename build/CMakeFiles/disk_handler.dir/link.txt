@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/disk_handler.dir/memory_handler_test/main.cpp.o -o disk_handler  memory_handler_lib/libmemory_handler_lib.a 

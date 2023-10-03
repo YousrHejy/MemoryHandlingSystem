@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmemory_handler_lib.a CMakeFiles/memory_handler_lib.dir/src/filesInfo.cpp.o CMakeFiles/memory_handler_lib.dir/src/purgingService.cpp.o
-/usr/bin/ranlib libmemory_handler_lib.a

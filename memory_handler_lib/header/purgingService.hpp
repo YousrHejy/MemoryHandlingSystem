@@ -11,12 +11,13 @@ class PurgingService{
     private:
         int maxDiskUsage;
         bool deleteFile(const string& filePath);
-
+        uint64_t DiskSize( FilesInfo & diskFile );
+        vector <string>  oldestFile(FilesInfo & file,int & maximumTime);
     public:
-        void purgeDataFiles();
+        PurgingService();
+        void purgeDataFiles(int & maxDiskUsage, int & maxTime, path folderPath);
         
-
-
-
+        
+        
 };
 #endif //MEMORY_HANDLER_LIB_PURGINGSERVICE_H

@@ -30,59 +30,22 @@ void LoadSystemConfiration(const path fpath,int *max_storage, int *max_time){
 //   cout << "Max time" << *max_time << endl;
   
 }
-
-
 int main() {
-    
-    path filesPath = "/home/yousr/Documents/";
-    //FilesInfo file1("/home/sama/Templates/");
-    FilesInfo file1;
-    // file1.getFiles("/home/sama/Music/");
-
-    file1.getFiles(filesPath);
-    map <string ,uint64_t> filesInfo = file1.getDiskUsage();
-    map <string,uint64_t>::iterator itr;
-
-
-    for(itr=filesInfo.begin(); itr != filesInfo.end(); ++itr){
-        cout << "  " << itr->first << ", " << itr->second << endl;
-        cout << endl;
-    }
-
-    // time and config
-    int maxStorage = 0;
-    int maxFileTime = 0;
-    vector <string> filesToDelete;
-
-    path configPath =  "/home/yousr/c++projects/MemoryHandlingSystem/configurations/system.config";
-    LoadSystemConfiration(configPath, &maxStorage, &maxFileTime);
-    map <string, time_t> filesTimeMap  = file1.getFilesTime() ;
-    // // in case the map is emptty
-    // try{
-    //   for (const auto& file : filesTimeMap){
-    //     cout << "  " << file.first << ", " << file.second << endl;
-    //     while(diskStorage < maxStorage){
-    //       if((system_clock::now() - file.second) > maxFileTime){
-    //       //file will be deleted as it has been more than week in memory
-    //       filesToDelete.push_back(file.first);
-    //       // pass it to delete function
-    //       }
-    //       else{
-    //         cout << "System Storage did not reach max"
-    //       }
-    //     }
-    //     cout << endl;
-    // }
-    // }
-    // catch(const std::exception& e)
-    // {
-    //   std::cerr << e.what() << '\n';
-    // }
-
-    for (const auto& file : filesTimeMap){
-        cout << "  " << file.first << ", " << file.second << endl;
-    } 
-    
-
-    return 0;
+  //const int SLEEP_INTERVAL = 5;
+   // Enter daemon loop
+  // while(1)
+   //{
+      //time and config
+      path filesPath = "/home/sama/Documents/";
+      int maxStorage = 0;
+      int maxFileTime = 0;
+      vector <string> filesToDelete;
+      path configPath =  "/home/sama/Desktop/c++/MemoryHandlingSystem/configurations/system.config";
+      LoadSystemConfiration(configPath, &maxStorage, &maxFileTime);
+      PurgingService serv;
+      serv.purgeDataFiles(maxStorage,maxFileTime,filesPath);
+     // sleep(SLEEP_INTERVAL);
+ //  }
+ // exit(EXIT_SUCCESS);
+ return 0;
 }

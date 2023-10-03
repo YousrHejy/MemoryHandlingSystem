@@ -1,0 +1,19 @@
+ create service in folder /etc/systemd/system:
+ cd /etc/systemd/system
+ sudo nano filename.service
+// content of service 
+[Unit]
+Description=disk_handler Service
+[Service]
+Type=simple
+ExecStart=/home/sama/Desktop/c++/MemoryHandlingSystem/build/disk_handler // path of excutable
+Restart=on-failure
+RestartSec=20
+KillMode=process
+[Install]
+WantedBy=multi-user.target
+
+ run :
+ sudo systemctl daemon-reload
+ sudo systemctl start filename
+ sudo journalctl -f -a -ufilename

@@ -33,29 +33,56 @@ void LoadSystemConfiration(const path fpath,int *max_storage, int *max_time){
 
 
 int main() {
-    int maxStorage = 0;
-    int maxFileTime = 0;
-    path configPath =  "/home/yousr/c++projects/MemoryHandlingSystem/configurations/system.config";
+    
     path filesPath = "/home/yousr/Documents/";
     //FilesInfo file1("/home/sama/Templates/");
     FilesInfo file1;
     // file1.getFiles("/home/sama/Music/");
 
-    LoadSystemConfiration(configPath, &maxStorage, &maxFileTime);
     file1.getFiles(filesPath);
     map <string ,uint64_t> filesInfo = file1.getDiskUsage();
     map <string,uint64_t>::iterator itr;
-    map <string, time_t> filesTimeMap  = file1.getFilesTime() ;
 
 
     for(itr=filesInfo.begin(); itr != filesInfo.end(); ++itr){
         cout << "  " << itr->first << ", " << itr->second << endl;
         cout << endl;
     }
+
+    // time and config
+    int maxStorage = 0;
+    int maxFileTime = 0;
+    vector <string> filesToDelete;
+
+    path configPath =  "/home/yousr/c++projects/MemoryHandlingSystem/configurations/system.config";
+    LoadSystemConfiration(configPath, &maxStorage, &maxFileTime);
+    map <string, time_t> filesTimeMap  = file1.getFilesTime() ;
+    // // in case the map is emptty
+    // try{
+    //   for (const auto& file : filesTimeMap){
+    //     cout << "  " << file.first << ", " << file.second << endl;
+    //     while(diskStorage < maxStorage){
+    //       if((system_clock::now() - file.second) > maxFileTime){
+    //       //file will be deleted as it has been more than week in memory
+    //       filesToDelete.push_back(file.first);
+    //       // pass it to delete function
+    //       }
+    //       else{
+    //         cout << "System Storage did not reach max"
+    //       }
+    //     }
+    //     cout << endl;
+    // }
+    // }
+    // catch(const std::exception& e)
+    // {
+    //   std::cerr << e.what() << '\n';
+    // }
+
     for (const auto& file : filesTimeMap){
         cout << "  " << file.first << ", " << file.second << endl;
-        cout << endl;
-    }
+    } 
+    
 
     return 0;
 }

@@ -4,7 +4,9 @@
 #include <unistd.h>
 #include <fstream>
 #include "filesInfo.hpp"
+#include "logs.hpp"
 using namespace std;
+
 
 class PurgingService{
 

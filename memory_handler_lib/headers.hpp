@@ -2,6 +2,7 @@
 #define MEMORY_HANDLER_LIB__HPP
 #include "header/filesInfo.hpp"
 # include "header/purgingService.hpp"
+#include "header/logs.hpp"
 #include <iostream>
 #include <fstream>
 #include <map>  

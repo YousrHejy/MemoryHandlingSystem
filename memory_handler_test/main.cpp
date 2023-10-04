@@ -21,9 +21,11 @@ void LoadSystemConfiration(const path fpath,int *max_storage, int *max_time){
         *max_time = parameter_value;
       }
     }
+    writeLogs(ConfigSuccsess);
     config_file.close();
   }
    else {
+    writeLogs(ConfigFailed);
     cout << "Error \n";
     }
 //   cout << "Max Storage" << *max_storage << endl;
@@ -36,11 +38,11 @@ int main() {
   // while(1)
    //{
       //time and config
-      path filesPath = "/home/sama/Documents/";
+      path filesPath = "/home/islam/Desktop/folder1";
       int maxStorage = 0;
       int maxFileTime = 0;
       vector <string> filesToDelete;
-      path configPath =  "/home/sama/Desktop/c++/MemoryHandlingSystem/configurations/system.config";
+      path configPath =  "/home/islam/Desktop/fork/MemoryHandlingSystem/configurations/system.config";
       LoadSystemConfiration(configPath, &maxStorage, &maxFileTime);
       PurgingService serv;
       serv.purgeDataFiles(maxStorage,maxFileTime,filesPath);

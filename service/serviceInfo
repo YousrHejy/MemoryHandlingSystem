@@ -6,7 +6,7 @@
 Description=disk_handler Service
 [Service]
 Type=simple
-ExecStart=/home/sama/Desktop/c++/MemoryHandlingSystem/build/disk_handler // path of excutable
+ExecStart=/home/islam/Desktop/fork/MemoryHandlingSystem/build/disk_handler // path of excutable
 Restart=on-failure
 RestartSec=20
 KillMode=process

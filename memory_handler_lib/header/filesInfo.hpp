@@ -6,6 +6,7 @@
 #include <iostream>
 #include<vector>
 #include <chrono>
+#include "logs.hpp"
 using namespace std::filesystem;
 using namespace std;
 using namespace std::chrono;

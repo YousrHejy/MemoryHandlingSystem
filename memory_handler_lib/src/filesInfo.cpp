@@ -13,13 +13,17 @@ void FilesInfo::getFiles( const string  & folderPath){
                 const  string &  file_path = entry.path().string();
                this->files.push_back(file_path);
             }
+            writeLogs(AccessSuccess);
             cout << "Access success"<<"\n";
+            
         }else{
             throw 505;
         }
     }
     catch (...){
+        writeLogs(AccessDenied);
         cout << "Access denied"<<"\n";
+        
     }
 }
 

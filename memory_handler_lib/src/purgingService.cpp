@@ -2,12 +2,13 @@
 PurgingService:: PurgingService(){
 
 }
+
 bool PurgingService::deleteFile(const string& filepath) {
     if (remove(filepath.c_str()) == 0) {
-        //std::cout << "File deleted successfully." << std::endl;
+        writeLogs(FileDeleted);
         return true;
     } else {
-        std::cerr << "Error deleting file." << std::endl;
+        writeLogs(DeleteError);
         return false;
     }
 }
@@ -41,11 +42,10 @@ void PurgingService::purgeDataFiles(int & maxDiskUsage, int & maxTime, path fold
             if(filesDelete.size()>0){
                 for(const auto &  filePath :filesDelete){
                     deleteFile(filePath); //delete all files in the directory
-                    cout << "Deleted all files in the directory" << endl;
                 }
-                
+                cout << "Deleted all files in the directory" << endl;
             }else{
-                cout << "There is no old files to be deleted "<<endl;
+                cout << "There is no old files to be deleted "<< endl;
             }
             
         } 
